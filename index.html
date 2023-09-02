@@ -4,11 +4,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
+<script type="text/javascript">
+    function addListItem() {
+    	var li = document.createElement('li');
+    	var inputValue = document.getElementById('task_name').value;
+    	var t = document.createTextNode(inputValue);
+    	li.appendChild(t);
+    	if (inputValue === '') {
+      	alert("You must write something!");
+    	} else {
+      	document.getElementById('task_list').appendChild(li);
+    	}
+    	document.getElementById('task_name').value = "";
+}
+</script>
 <body>
     <div>
         <h2>To Do List</h2>
-        <ul>
+        <input type="text" id="task_name" placeholder="Enter a task..."/>
+        <input type="submit" value="Add" onclick="addListItem()">
+        <ul id="task_list">
             <li>Pay bills</li>
             <li>Read a book</li>
             <li>Meet Anna</li>
